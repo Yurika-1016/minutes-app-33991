@@ -1,0 +1,48 @@
+<div class="user_registration">
+  <h1>新規登録</h1>
+
+  <div class="field_group">
+
+  <%= form_with model: @user, url: user_registration_path, local: true  do |f| %>
+   <%= render "shared/error_messages", locals:{model: @user}, model: f.object %>
+  
+  <h3>■必要事項を記入してください</h3>
+    <div class="field">
+     <%= f.label :last_name, "苗字" , class:"label_name" %><br />
+     <%= f.text_field :last_name, placeholder: "例）山田", class:"label_form" %>
+   </div>
+
+    <div class="field">
+      <%= f.label :first_name, "名前", class:"label_name" %><br />
+      <%= f.text_field :first_name, placeholder: "例）太郎", class:"label_form"  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email, "メールアドレス", class:"label_name" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "例）aaa@aaa.com", class:"label_form"  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, "パスワード(6文字以上で設定してください)", class:"label_name" %><br />
+      <%= f.password_field :password, autocomplete: "new-password" ,placeholder: "例）aaa111", class:"label_form" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, "パスワード（確認用）", class:"label_name" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "例）aaa111", class:"label_form"  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :employee_number , "社員番号", class:"label_name"%><br />
+      <%= f.text_field :employee_number, placeholder: "例）11111", class:"label_form"  %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "送信",class:"form_box" %>
+    </div>
+  </div>
+  <% end %>
+
+  <br>アカウントを既に登録している方はこちらへ→
+  <%= render "devise/shared/links" %>
+</div>

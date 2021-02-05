@@ -1,0 +1,38 @@
+.top-page-header {
+  width: 100%;
+  height: 20%;
+  background-color:lightblue ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-contents{
+  margin: 5px 5px 5px 30px;
+  width: 30%;
+}
+
+.title-logo{
+  font-size: 30px;
+  text-decoration: none;
+  color: gray;
+}
+
+.nav{
+  margin:5px;
+}
+
+.nav-lists{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.nav-list{
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 10px;
+  text-decoration: none;
+  color:darkslategrey;
+  background-color:gainsboro;
+}
