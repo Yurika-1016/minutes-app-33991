@@ -1,0 +1,42 @@
+.user_registration {
+  width: auto;
+  height: auto;
+  background-color:white;
+  display: block;
+  justify-content: right;
+}
+
+.field_group {
+  width: 70%;
+  height: 50%;
+  background-color:lightyellow;
+  display: block;
+  justify-content: center;
+  margin: 50px, 80px;
+  padding: 10px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  width: 70%;
+  background-color: lemonchiffon;
+}
+
+.label_name {
+  margin: 10px;
+}
+
+.label_form {
+  margin: 10px;
+}
+
+.form_box {
+  width: 10%;
+  margin-left: 300px;
+  background:lightgoldenrodyellow;
+  border:1px solid grey;
+  color: black;
+}
+
