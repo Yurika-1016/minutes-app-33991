@@ -1,0 +1,11 @@
+.footer-contents{
+  color:white;
+  background-color: lightblue;
+  text-align: center;
+  height: 33px;
+  width: 100%;
+  position:absolute;
+  bottom:0;
+  padding-top: 3px;
+  font-size: 15px;
+}
