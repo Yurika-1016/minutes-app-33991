@@ -9,4 +9,6 @@ class User < ApplicationRecord
     validates :first_name
     validates :employee_number, format: {with: /\A[0-9]{5}\z/ }
   end
+
+  has_many :minutes
 end
