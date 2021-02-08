@@ -1,0 +1,81 @@
+.main-contents {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.form{
+  background-color:mistyrose;
+  margin: 10px;
+  padding: 20px;
+  width: 60%;
+  text-align: center;
+  margin: auto;
+}
+
+.title-form {
+  margin-bottom: 50px;
+}
+
+.indispensable {
+  font-size: 12px;
+  color:crimson;
+}
+
+.minutes-form{
+  width: 300px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.project_name-form {
+  margin-bottom: 50px;
+}
+
+.participate_member-form {
+  margin-bottom: 50px;
+}
+
+.minutes-form-area{
+  width: 300px;
+  height: 80px
+}
+
+.meeting_date-form {
+  margin-bottom: 50px;
+}
+
+.all_complete_date-form {
+  margin-bottom: 50px;
+}
+
+.content-form {
+  margin-bottom: 50px;
+}
+
+.content_text_form{
+  width: 300px;
+  padding: 5px;
+  margin: 5px;
+  height: 300px
+}
+
+.images-form {
+  margin-bottom: 50px;
+}
+
+.click_up_load{
+  font-size: 12px;
+}
+
+.submit-form {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.submit-btn {
+  color: white;
+  background-color:palevioletred;
+  border: 1px solid lightslategrey;
+  width: 200px;
+  height: 50px
+}

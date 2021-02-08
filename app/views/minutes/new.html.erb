@@ -1,0 +1,78 @@
+<div class="main-contents">
+    <h2>■新規議事録 登録ページ</h2>
+
+    <%= form_with(model:@minute, url:minutes_path, class:"form", local: true) do |f| %>
+    <%= render "shared/error_messages", locals:{model: @minute}, model: f.object %>
+
+    <div class="title-form">
+      <div class="form-title">
+        会議名
+        <br><span class="indispensable">（必須）</span>
+      </div>
+      <%= f.text_field :title, class:"minutes-form", placeholder:"例)Aプロジェクト キックオフ会議"%>
+    </div>
+
+    <div class="project_name-form">
+      <div class="form-title">
+        プロジェクト名
+        <br><span class="indispensable">（必須）</span>
+      </div>
+      <%= f.text_field :project_name, class:"minutes-form", placeholder:"例)Aプロジェクト"%>
+    </div>
+
+    <div class="participate_member-form">
+      <div class="form-title">
+        会議参加者
+        <br><span class="indispensable">（必須）</span>
+      </div>
+      <%= f.text_area :participate_member, class:"minutes-form-area", placeholder:"例)X社X部 鈴木様, C課 田中さん"%>
+    </div>
+
+    <div class="meeting_date-form">
+      <div class="form-title">
+        会議開催日
+        <br><span class="indispensable">（必須, ※ 西暦4桁/月/日 で登録してください)</span>
+      </div>
+      <%= f.text_field :meeting_date, class:"minutes-form", placeholder:"例)2021/01/01"%>
+    </div>
+
+    <div class="all_complete_date-form">
+      <div class="form-title">
+        タスク全項目終了予定日
+        <br><span class="indispensable">（必須, ※ 西暦4桁/月/日 で登録してください)</span>
+      </div>
+      <%= f.text_field :all_complete_date, class:"minutes-form", placeholder:"例)2021/03/01"%>
+    </div>
+
+    <div class="content-form">
+      <div class="form-title">
+        会議内容
+        <br><span class="indispensable">(必須)</span>
+        </div>
+      <%= f.text_area :content, class:"content_text_form", placeholder:"例)2021年から始動するAプロジェクトのキックオフを実施"%>
+    </div>
+
+    <div class="images-form">
+      <div class="form-title">
+        画像
+        <br><span class="indispensable">(任意)</span>
+      </div>
+      <div class="click_up_load">
+        <p>クリックしてファイルをアップロード</p>
+        <%= f.file_field :images, name: 'minute[images][]', id:'minute_images' %>
+    </div>
+
+    <div id="image-list"></div>
+
+    <% @minute.images.each do |image|%>
+      <%= image_tag image, class:'images'%>
+    <% end %>
+
+    <div class="submit-form">
+      <%= f.submit "登録する", class:"submit-btn" %>
+    </div>
+
+     <% end %>
+
+    <%= link_to "トップページに戻る", root_path, class:"back-top-page"%>
+</div>

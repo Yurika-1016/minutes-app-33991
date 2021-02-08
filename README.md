@@ -90,9 +90,10 @@ minutes_app
 | -------------------------- | --------------- | ---------------------------------------------------------------- |
 |           title            |     string      |                           null:false                             |
 |         project_name       |     string      |                           null:false                             |
-|      participate_user      |      text       |                           null:false                             |
-|    　 　meeting_date        |     string      |null:false, format: { with: /\A[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}\z/|
+|     participate_member     |      text       |                           null:false                             |
+|        meeting_date        |     string      |null:false, format: { with: /\A[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}\z/|
 |     all_complete_date      |     string      |null:false, format: { with: /\A[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}\z/|
+|        content             |      text       |                                                                  |
 |          user_id           |    references   |                  null:false, foreign_keys: true                  |
 ### Association
 - belongs_to :user
@@ -102,6 +103,25 @@ minutes_app
 |           column           |      type       |                 option                    |
 | -------------------------- | --------------- | ----------------------------------------- |
 |           title            |      text       |               null:false                  |
+|          user_id           |    references   |       null:false, foreign_keys: true      |
+|         minute_id          |    references   |       null:false, foreign_keys: true      |
+### Association
+- belongs_to :user
+- belongs_to :minute
+
+## ToDoListsテーブル
+|           column           |      type       |                 option                    |
+| -------------------------- | --------------- | ----------------------------------------- |
+|           list1            |      text       |                                           |
+|           list2            |      text       |                                           |
+|           list3            |      text       |                                           |
+|           list4            |      text       |                                           |
+|           list5            |      text       |                                           |
+|           list6            |      text       |                                           |
+|           list7            |      text       |                                           |
+|           list8            |      text       |                                           |
+|           list9            |      text       |                                           |
+|           list10           |      text       |                                           |
 |          user_id           |    references   |       null:false, foreign_keys: true      |
 |         minute_id          |    references   |       null:false, foreign_keys: true      |
 ### Association
