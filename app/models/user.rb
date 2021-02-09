@@ -7,7 +7,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :last_name
     validates :first_name
-    validates :employee_number, format: {with: /\A[0-9]{5}\z/ }
+    validates :employee_number, format: { with: /\A[0-9]{5}\z/ }
   end
 
   has_many :minutes

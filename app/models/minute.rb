@@ -6,8 +6,8 @@ class Minute < ApplicationRecord
     validates :title
     validates :project_name
     validates :participate_member
-    validates :meeting_date, format: { with: /\A[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}\z/ }
-    validates :all_complete_date, format: { with: /\A[0-9]{4}\/[0-9]{1,2}\/[0-9]{1,2}\z/ }
+    validates :meeting_date, format: { with: %r{\A[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}\z} }
+    validates :all_complete_date, format: { with: %r{\A[0-9]{4}/[0-9]{1,2}/[0-9]{1,2}\z} }
     validates :content
   end
 end
