@@ -2,14 +2,15 @@ class MinutesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @minutes = Minute.all.order(id: 'DESC')
   end
 
   def new
-    @minute =Minute.new
+    @minute = Minute.new
   end
 
   def create
-    @minute =Minute.new(minute_params)
+    @minute = Minute.new(minute_params)
     if @minute.save
       redirect_to root_path
     else
@@ -18,7 +19,9 @@ class MinutesController < ApplicationController
   end
 
   private
+
   def minute_params
-    params.require(:minute).permit(:title, :project_name,:participate_member, :meeting_date, :all_complete_date, :content, images: [] ).merge(user_id: current_user.id)
+    params.require(:minute).permit(:title, :project_name, :participate_member, :meeting_date, :all_complete_date, :content,
+                                   images: []).merge(user_id: current_user.id)
   end
 end
