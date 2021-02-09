@@ -1,0 +1,94 @@
+<header><%= render "shared/header" %></header>
+
+<div class="main">
+  <div class ="left-bar">
+  ■議事録詳細内容
+    <div class="user-only-function">
+      <% if current_user.id == @minute.user_id %>
+        <%= link_to "編集", edit_minute_path(@minute.id), class:"user-only-func-btn" %>
+        <%= link_to "削除", minute_path(@minute.id), method: :delete, class:"user-only-func-btn" %>
+        <%# if @minute.closed.empty? %>
+          <%= link_to "この議事録をclosedする", "#", class:"user-only-func-btn" %>
+        <%# else %>
+        <%# end %>
+      <% end %>
+    </div>
+
+    <div class="minute-iists">
+      <li class="minute-list">
+        <div class="info-title">
+        会議名
+        </div>
+        <%= @minute.title %>
+      </li>
+
+      <li class="minute-list">
+        <div class="info-title">
+        プロジェクト名
+        </div>
+        <%= @minute.project_name %>
+      </li>
+
+      <li class="minute-list">
+        <div class="info-title">
+        会議参加者
+        </div>
+        <%= @minute.participate_member %>
+      </li>
+
+      <li class="minute-list">
+        <div class="info-title">
+        会議開催日
+        </div>
+        <%= @minute.meeting_date %>
+      </li>
+
+      <li class="minute-list">
+        <div class="info-title">
+        タスク全項目終了予定日
+        </div>
+        <%= @minute.all_complete_date %>
+      </li>
+
+      <li class="minute-list">
+        <div class="info-title">
+        会議内容
+        </div>
+        <%= @minute.content %>
+      </li>
+
+      <% if @minute.images.present?%>
+        <li class="minute-list">
+          <div class="info-title">
+          添付ファイル
+          </div>
+          <div class="minute-image">
+            <% @minute.images.each do |image|%>
+              <%= image_tag image, class:'images'%>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="right-bar">
+    <div class="right-upper-bar">
+    ■To Do リスト
+    <br>To Do List作成後に実装
+    </div>
+
+    <div class="right-lower-bar">
+    ■コメント欄
+      <%# @comments.each do |comment|%>
+        <%# comment.user_name %>
+        <%# comment.text %>
+        <%# link_to "edit path" %>
+        <%# link_to "destroy path" %>
+      <%# end %>
+    </div>
+  </div>
+
+</div>
+
+<footer><%= render "shared/footer" %></footer>

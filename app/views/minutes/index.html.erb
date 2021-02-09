@@ -14,7 +14,7 @@
     ■議事録一覧
       <% @minutes.each do |minute|%>
         <div class="minute">
-        <%= link_to "#" do%>
+        <%= link_to minute_path(minute.id) do%>
           <div class="minute.title">
             会議題目：<%= minute.title %>
           </div>
