@@ -1,12 +1,14 @@
 .main-contents {
   width: 100%;
   height: 100%;
+  padding-top: 50px;
   text-align: center;
+  font-size: 15px;
 }
 
 .form{
   background-color:mistyrose;
-  margin: 10px;
+  margin: 20px;
   padding: 20px;
   width: 60%;
   text-align: center;
@@ -38,7 +40,8 @@
 
 .minutes-form-area{
   width: 300px;
-  height: 80px
+  height: 80px;
+  resize: none;
 }
 
 .meeting_date-form {
@@ -57,7 +60,8 @@
   width: 300px;
   padding: 5px;
   margin: 5px;
-  height: 300px
+  height: 300px;
+  resize: none;
 }
 
 .images-form {
@@ -65,7 +69,7 @@
 }
 
 .click_up_load{
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .submit-form {

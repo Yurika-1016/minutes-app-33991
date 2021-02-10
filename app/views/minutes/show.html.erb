@@ -80,12 +80,39 @@
 
     <div class="right-lower-bar">
     ■コメント欄
-      <%# @comments.each do |comment|%>
-        <%# comment.user_name %>
-        <%# comment.text %>
-        <%# link_to "edit path" %>
-        <%# link_to "destroy path" %>
-      <%# end %>
+      <div class="comments">
+        <% @comments.each do |comment|%>
+          <div class="comment">
+          
+            <div class=comennt-contents>
+              <div class="comment-user_name">
+                <%= "#{comment.user.last_name} #{comment.user.first_name}" %>:
+              </div>
+              <div class="comment_content">
+                <%= comment.title %> 
+              </div>
+            </div>
+
+            <div class="comment-edit-destroy">
+              <% if current_user.id == comment.user_id %>
+                <%= link_to "編集", edit_minute_comment_path(comment.minute.id, comment.id), class:"comment-edit-destroy-btn" %>
+                <%= link_to "削除", minute_comment_path(comment.minute.id, comment.id), method: :delete, class:"comment-edit-destroy-btn" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="comment-exit">
+          <% if @comments.present? %>
+            この投稿に関するコメントは以上です。
+          <% else %>
+            この投稿にはコメントは投稿されていません。
+          <% end %>
+        </div>
+
+      </div>
+        <%= link_to "コメントする", new_minute_comment_path(@minute.id), class:"comment-button"%>
+      </div>
     </div>
   </div>
 

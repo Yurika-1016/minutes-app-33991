@@ -60,13 +60,14 @@
       <div class="click_up_load">
         <p>クリックしてファイルをアップロード</p>
         <%= f.file_field :images, name: 'minute[images][]', id:'minute_images' %>
+      </div>  
+
+      <div id="image-list"></div>
+
+      <% @minute.images.each do |image|%>
+        <%= image_tag image, class:'images'%>
+      <% end %>
     </div>
-
-    <div id="image-list"></div>
-
-    <% @minute.images.each do |image|%>
-      <%= image_tag image, class:'images'%>
-    <% end %>
 
     <div class="submit-form">
       <%= f.submit "登録する", class:"submit-btn" %>

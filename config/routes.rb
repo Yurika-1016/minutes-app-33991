@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "minutes#index"
-  resources :minutes, only:[:new, :create, :show, :edit, :update, :destroy]
+  resources :minutes do
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
+  end
 end
