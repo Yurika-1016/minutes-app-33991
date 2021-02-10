@@ -1,0 +1,20 @@
+<div class="main-contents">
+  <h2>コメント編集ページ</h2>
+    <%= form_with(model:@comment, url:minute_comment_path, class:"form", local: true) do |f| %>
+      <%= render "shared/error_messages", locals:{model: @comment}, model: f.object %>
+
+      <div class="title-form">
+        <div class="form-title">
+        コメントを入力してください
+        </div>
+        <%= f.text_area :title, class:"comment-form" %>
+      </div>
+
+      <div class="submit-form">
+        <%= f.submit "登録する", class:"submit-btn" %>
+      </div>
+
+    <% end %>
+
+    <%= link_to "トップページに戻る", root_path, class:"back-top-page"%>
+</div>

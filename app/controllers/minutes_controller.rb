@@ -21,6 +21,8 @@ class MinutesController < ApplicationController
   end
 
   def show
+    @comments = @minute.comments
+    @comment = @minute.comments
   end
 
   def edit
