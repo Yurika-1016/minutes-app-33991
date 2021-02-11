@@ -23,6 +23,7 @@ class MinutesController < ApplicationController
   def show
     @comments = @minute.comments
     @comment = @minute.comments
+    @to_do_list = @minute.to_do_list
   end
 
   def edit

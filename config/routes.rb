@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: "minutes#index"
   resources :minutes do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
+    resources :to_do_lists, only: [:new, :create, :edit, :update]
   end
 end

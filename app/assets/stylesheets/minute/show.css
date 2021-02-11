@@ -48,23 +48,51 @@
 .right-bar{
   width: 50%;
   min-height: 100%;
-  overflow: scroll;
   font-size: 15px;
+  padding: 50px 0;
+  overflow: scroll;
 }
 
 .right-upper-bar {
   position: fixed;
-  height: 30px;
+  height: 235px;
   width: 70%;
   top:60px;
   background-color: seashell;
-  padding: 50px 20px;
+  padding: 5px 20px;
   font-size: 12px;
+}
+
+.to_do_input_form{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.to_do_input_form_btn,.to_do_list_edit_btn{
+  border: 1px solid darkgrey;
+  border-radius: 5px;
+  background-color: darkgrey;
+  padding: 4px;
+  margin-right: 20px;
+  color: white;
+}
+
+.cheked-mark{
+  background-color: crimson;
+  border: 1px;
+  border-radius: 12px;
+  color:white;
+  padding:  2px;
+  font-size: 10px;
+}
+
+.to_do_list_contents{
+  padding: 7px;
 }
 
 .right-lower-bar {
   overflow: scroll;
-  padding: 160px 20px 0px 20px;
+  padding: 240px 0px 0px 20px;
   font-size: 14px;
 }
 .comments{
