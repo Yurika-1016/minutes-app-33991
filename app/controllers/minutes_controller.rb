@@ -42,6 +42,14 @@ class MinutesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @minutes = Minute.search(params[:keyword])
+  end
+
+  def search_me
+    @minutes = Minute.where(user_id: current_user.id)
+  end
+
   private
 
   def minute_params

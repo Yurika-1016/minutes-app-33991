@@ -1,0 +1,20 @@
+<div class="minute">
+        <%= link_to minute_path(minute.id) do%>
+          <div class="minute.title">
+            会議題目：<%= minute.title %>
+          </div>
+          <div class="minute-meeting_date">
+            会議開催日：<%= minute.meeting_date %>
+          </div>
+          <div class="minute-project_name">
+            プロジェクト名：<%= minute.project_name %>
+          </div>
+          <div class="minute-participate_member">
+            参加メンバー：<%= minute.participate_member %>
+          </div>
+          <div class="minute-post_user_name">
+            登録者：<%= minute.user.last_name+minute.user.first_name %>
+          </div>
+          <%# if minureがclosedの時はclosedのタグをつける%>
+        <% end %>
+        </div>

@@ -7,32 +7,25 @@
   </div>
   <div class="main-bar">
     <div class="main-upper-bar">
-    ■検索窓
-    <br>検索窓を表示
+      <div class="main-search">
+        <%= form_with(url:search_minutes_path, local: true, method: :get, class:"search-class") do |f| %>
+          <%= f.text_field :keyword, placeholder:"検索したいワードを入力してください", class:"search-form" %>
+          <%= f.submit "検索", class:"search-submit-btn" %>
+        <% end %>
+      </div>
+      <div class="sub-search">
+        <%= form_with(url:search_me_minutes_path, local: true, method: :get, class:"search-sub-class") do |f| %>
+          <%= f.submit "▼自分の登録した議事録を表示", class:"search-sub-submit-btn" %>
+        <% end %>
+        <%= form_with(url:"#", local: true, method: :get, class:"search-sub-class") do |f| %>
+          <%= f.submit "▼closedされていない議事録を表示", class:"search-sub-submit-btn" %>
+        <% end %>
+      </div>
     </div>
     <div class="main-lower-bar">
     ■議事録一覧
       <% @minutes.each do |minute|%>
-        <div class="minute">
-        <%= link_to minute_path(minute.id) do%>
-          <div class="minute.title">
-            会議題目：<%= minute.title %>
-          </div>
-          <div class="minute-meeting_date">
-            会議開催日：<%= minute.meeting_date %>
-          </div>
-          <div class="minute-project_name">
-            プロジェクト名：<%= minute.project_name %>
-          </div>
-          <div class="minute-participate_member">
-            参加メンバー：<%= minute.participate_member %>
-          </div>
-          <div class="minute-post_user_name">
-            登録者：<%= minute.user.last_name+minute.user.first_name %>
-          </div>
-          <%# if minureがclosedの時はclosedのタグをつける%>
-        <% end %>
-        </div>
+        <%= render partial:'minute', locals:{minute: minute} %>
       <% end %>
     </div>
   </div>
