@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_10_024307) do
+ActiveRecord::Schema.define(version: 2021_02_11_004322) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -54,6 +54,35 @@ ActiveRecord::Schema.define(version: 2021_02_10_024307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_minutes_on_user_id"
+  end
+
+  create_table "to_do_lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "list1", null: false
+    t.text "list2"
+    t.text "list3"
+    t.text "list4"
+    t.text "list5"
+    t.text "list6"
+    t.text "list7"
+    t.text "list8"
+    t.text "list9"
+    t.text "list10"
+    t.boolean "checked_list1"
+    t.boolean "checked_list2"
+    t.boolean "checked_list3"
+    t.boolean "checked_list4"
+    t.boolean "checked_list5"
+    t.boolean "checked_list6"
+    t.boolean "checked_list7"
+    t.boolean "checked_list8"
+    t.boolean "checked_list9"
+    t.boolean "checked_list10"
+    t.bigint "user_id", null: false
+    t.bigint "minute_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["minute_id"], name: "index_to_do_lists_on_minute_id"
+    t.index ["user_id"], name: "index_to_do_lists_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

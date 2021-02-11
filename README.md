@@ -84,6 +84,7 @@ minutes_app
 ### Association
 - has_many :minutes
 - has_many :comments
+- has_many :to_do_lists
 
 ## Minutesテーブル
 |           column           |      type       |                            option                                |
@@ -98,6 +99,7 @@ minutes_app
 ### Association
 - belongs_to :user
 - has_many :comments
+- has_one :to_do_list
 
 ## Commentsテーブル
 |           column           |      type       |                 option                    |
@@ -112,7 +114,7 @@ minutes_app
 ## ToDoListsテーブル
 |           column           |      type       |                 option                    |
 | -------------------------- | --------------- | ----------------------------------------- |
-|           list1            |      text       |                                           |
+|           list1            |      text       |              null:false                   |
 |           list2            |      text       |                                           |
 |           list3            |      text       |                                           |
 |           list4            |      text       |                                           |

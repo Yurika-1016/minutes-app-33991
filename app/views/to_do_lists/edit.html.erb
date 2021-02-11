@@ -1,0 +1,38 @@
+<div class="main-contents">
+    <h2>■To Do リスト 編集ページ</h2>
+
+    <%= form_with(model:@to_do_list, url:minute_to_do_list_path, class:"form", local: true) do |f| %>
+    <%= render "shared/error_messages", locals:{model: @to_do_list}, model: f.object %>
+    To Do リストを登録してください
+
+    <div class="lists-content-form">
+       1: <%= f.text_field :list1, class:"list_form", placeholder:"例)○○について調べておく(担当：Bさん)"%>
+       済: <%= f.check_box :checked_list1 %>
+       <br>2: <%= f.text_field :list2, class:"list_form", placeholder:"例)○○について調べておく(担当：Bさん)"%>
+       済: <%= f.check_box :checked_list2 %>
+       <br>3: <%= f.text_field :list3, class:"list_form", placeholder:"例)○○について調べておく(担当：Bさん)"%>
+       済: <%= f.check_box :checked_list3 %>
+       <br>4: <%= f.text_field :list4, class:"list_form", placeholder:"例)○○について調べておく(担当：Bさん)"%>
+       済: <%= f.check_box :checked_list4 %>
+       <br>5: <%= f.text_field :list5, class:"list_form", placeholder:"例)○○について調べておく(担当：Bさん)"%>
+       済: <%= f.check_box :checked_list5 %>
+       <br>6: <%= f.text_field :list6, class:"list_form", placeholder:"例)○○について調べておく(担当：Bさん)"%>
+       済: <%= f.check_box :checked_list6 %>
+       <br>7: <%= f.text_field :list7, class:"list_form", placeholder:"例)○○について調べておく(担当：Bさん)"%>
+       済: <%= f.check_box :checked_list7 %>
+       <br>8: <%= f.text_field :list8, class:"list_form", placeholder:"例)○○について調べておく(担当：Bさん)"%>
+       済: <%= f.check_box :checked_list8 %>
+       <br>9: <%= f.text_field :list9, class:"list_form", placeholder:"例)○○について調べておく(担当：Bさん)"%>
+       済: <%= f.check_box :checked_list9 %>
+      <br>10: <%= f.text_field :list10, class:"list_form", placeholder:"例)○○について調べておく(担当：Bさん)"%>
+      済: <%= f.check_box :checked_list10 %>
+    </div>
+
+    <div class="submit-form">
+      <%= f.submit "登録する", class:"submit-btn" %>
+    </div>
+
+     <% end %>
+
+    <%= link_to "トップページに戻る", root_path, class:"back-top-page"%>
+</div>

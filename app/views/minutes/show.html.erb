@@ -75,7 +75,107 @@
   <div class="right-bar">
     <div class="right-upper-bar">
     ■To Do リスト
-    <br>To Do List作成後に実装
+    <% unless @to_do_list.present? %>
+      <div class="to_do_input_form">
+        <%= link_to "To Do リストを登録する", new_minute_to_do_list_path(@minute.id), class:"to_do_input_form_btn"%>
+      </div>
+
+    <% else %>
+    <div class="to_do_list_show">
+      <div class="to_do_list_edit">
+        <%= link_to "編集", edit_minute_to_do_list_path(@to_do_list.minute.id, @to_do_list.id), class:"to_do_list_edit_btn" %>
+      </div>
+      <div class="to_do_list_contents">
+        <li>
+          <%if @to_do_list.checked_list1 == true %>
+            <span class="cheked-mark">済</span>
+          <% end %>
+          <%= @to_do_list.list1 %>
+        </li>
+
+        <% if @to_do_list.list2.present?%>
+          <li>
+          <%if @to_do_list.checked_list2 == true %>
+            <span class="cheked-mark">済</span>
+          <% end %>
+          <%= @to_do_list.list2 %>
+        </li>
+        <% end %>
+
+        <% if @to_do_list.list3.present?%>
+          <li>
+          <%if @to_do_list.checked_list3 == true %>
+            <span class="cheked-mark">済</span>
+          <% end %>
+          <%= @to_do_list.list3 %>
+        </li>
+        <% end %>
+
+        <% if @to_do_list.list4.present?%>
+          <li>
+          <%if @to_do_list.checked_list4 == true %>
+            <span class="cheked-mark">済</span>
+          <% end %>
+          <%= @to_do_list.list4 %>
+        </li>
+        <% end %>
+
+        <% if @to_do_list.list5.present?%>
+          <li>
+          <%if @to_do_list.checked_list5 == true %>
+            <span class="cheked-mark">済</span>
+          <% end %>
+          <%= @to_do_list.list5 %>
+        </li>
+        <% end %>
+
+        <% if @to_do_list.list6.present?%>
+          <li>
+          <%if @to_do_list.checked_list6 == true %>
+            <span class="cheked-mark">済</span>
+          <% end %>
+          <%= @to_do_list.list6 %>
+        </li>
+        <% end %>
+
+        <% if @to_do_list.list7.present?%>
+          <li>
+          <%if @to_do_list.checked_list7 == true %>
+            <span class="cheked-mark">済</span>
+          <% end %>
+          <%= @to_do_list.list7 %>
+        </li>
+        <% end %>
+
+        <% if @to_do_list.list8.present?%>
+          <li>
+          <%if @to_do_list.checked_list8 == true %>
+            <span class="cheked-mark">済</span>
+          <% end %>
+          <%= @to_do_list.list8 %>
+        </li>
+        <% end %>
+
+        <% if @to_do_list.list9.present?%>
+          <li>
+          <%if @to_do_list.checked_list9 == true %>
+            <span class="cheked-mark">済</span>
+          <% end %>
+          <%= @to_do_list.list9 %>
+        </li>
+        <% end %>
+
+        <% if @to_do_list.list10.present?%>
+          <li>
+          <%if @to_do_list.checked_list10 == true %>
+            <span class="cheked-mark">済</span>
+          <% end %>
+          <%= @to_do_list.list10 %>
+        </li>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
     </div>
 
     <div class="right-lower-bar">

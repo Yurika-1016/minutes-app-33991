@@ -12,4 +12,5 @@ class User < ApplicationRecord
 
   has_many :minutes
   has_many :comments
+  has_many :to_do_lists
 end
