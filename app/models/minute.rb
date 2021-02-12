@@ -3,6 +3,7 @@ class Minute < ApplicationRecord
   has_many_attached :images
   has_many :comments, dependent: :destroy
   has_one :to_do_list, dependent: :destroy
+  has_many :pins, dependent: :destroy
 
   with_options presence: true do
     validates :title
@@ -14,16 +15,15 @@ class Minute < ApplicationRecord
   end
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Minute.where('title LIKE(?)', "%#{search}%")
-      .or(Minute.where('project_name LIKE(?)', "%#{search}%"))
-      .or(Minute.where('participate_member LIKE(?)', "%#{search}%"))
-      .or(Minute.where('meeting_date LIKE(?)', "%#{search}%"))
-      .or(Minute.where('all_complete_date LIKE(?)', "%#{search}%"))
-      .or(Minute.where('content LIKE(?)', "%#{search}%"))
+            .or(Minute.where('project_name LIKE(?)', "%#{search}%"))
+            .or(Minute.where('participate_member LIKE(?)', "%#{search}%"))
+            .or(Minute.where('meeting_date LIKE(?)', "%#{search}%"))
+            .or(Minute.where('all_complete_date LIKE(?)', "%#{search}%"))
+            .or(Minute.where('content LIKE(?)', "%#{search}%"))
     else
       Minute.all.order(id: 'DESC')
     end
   end
-
 end

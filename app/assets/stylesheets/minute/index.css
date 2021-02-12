@@ -7,11 +7,11 @@
 .side-bar{
   width: 30%;
   height: 100%;
-  background-color: whitesmoke;
+  background-color: lavenderblush;
   padding:60px 20px;
   overflow: scroll;
   font-size: 12px;
-  color: dimgray;
+  color:gray;
 }
 
 .main-bar{
@@ -60,7 +60,7 @@
 
 .search-sub-submit-btn{
   font-size: 11px;
-  background-color: mistyrose;
+  background-color: whitesmoke;
   color: gray;
   border: 1px solid gray;
   border-radius: 3px;

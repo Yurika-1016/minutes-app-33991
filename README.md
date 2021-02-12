@@ -129,3 +129,12 @@ minutes_app
 ### Association
 - belongs_to :user
 - belongs_to :minute
+
+## Pinsテーブル
+|           column           |      type       |                 option                    |
+| -------------------------- | --------------- | ----------------------------------------- |
+|          user_id           |    references   |       null:false, foreign_keys: true      |
+|         minute_id          |    references   |       null:false, foreign_keys: true      |
+### Association
+- belongs_to :user
+- belongs_to :minute

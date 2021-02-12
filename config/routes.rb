@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     collection do
       get 'search_me'
     end
+    resources :pins, only: [:create, :destroy]
   end
 end
