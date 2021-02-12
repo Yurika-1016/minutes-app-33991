@@ -2,8 +2,10 @@
 
 <div class="main">
   <div class ="side-bar">
-  ■ピン留めリスト
-  <br>ピン留めリスト（または自分が作成した）一覧を表示
+  ★ピン留めリスト
+    <% @minute.each do |minute|%>
+      <%= render partial:'short_minute', locals:{minute: minute} %>
+    <% end%>
   </div>
   <div class="main-bar">
     <div class="main-upper-bar">
@@ -15,7 +17,7 @@
       </div>
       <div class="sub-search">
         <%= form_with(url:search_me_minutes_path, local: true, method: :get, class:"search-sub-class") do |f| %>
-          <%= f.submit "▼自分の登録した議事録を表示", class:"search-sub-submit-btn" %>
+          <%= f.submit "▼自分が投稿した議事録を表示", class:"search-sub-submit-btn" %>
         <% end %>
         <%= form_with(url:"#", local: true, method: :get, class:"search-sub-class") do |f| %>
           <%= f.submit "▼closedされていない議事録を表示", class:"search-sub-submit-btn" %>

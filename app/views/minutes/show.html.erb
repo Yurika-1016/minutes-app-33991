@@ -12,6 +12,14 @@
         <%# else %>
         <%# end %>
       <% end %>
+      <div class="pin-btns", id="pin-btns", onclick="window.location.reload()">
+        <% if Pin.where(user_id: current_user.id).where(minute_id: @minute.id).empty? %>
+          <%= link_to "ピン留めに追加", minute_pins_path(@minute), method: :post, class:"pin-add-btn" %>
+        <% else %>
+          <%= link_to "ピン留めを外す", minute_pin_path(@pin), method: :delete, class:"pin-delete-btn" %>
+        <% end %>
+      </div>
+      <input type="button"  value="更新" id="koshin">
     </div>
 
     <div class="minute-iists">

@@ -5,6 +5,8 @@ class MinutesController < ApplicationController
 
   def index
     @minutes = Minute.all.order(id: 'DESC')
+    pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
+    @minute = Minute.find(pin)
   end
 
   def new
@@ -24,6 +26,8 @@ class MinutesController < ApplicationController
     @comments = @minute.comments
     @comment = @minute.comments
     @to_do_list = @minute.to_do_list
+    pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
+    @pin = Minute.find(pin)
   end
 
   def edit
@@ -44,10 +48,14 @@ class MinutesController < ApplicationController
 
   def search
     @minutes = Minute.search(params[:keyword])
+    pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
+    @minute = Minute.find(pin)
   end
 
   def search_me
-    @minutes = Minute.where(user_id: current_user.id)
+    @minutes = Minute.where(user_id: current_user.id).order(id: 'DESC')
+    pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
+    @minute = Minute.find(pin)
   end
 
   private

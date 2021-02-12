@@ -8,6 +8,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("./image")
+require("./pin")
 //require("./to_do_list")
 
 

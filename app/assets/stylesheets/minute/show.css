@@ -20,6 +20,7 @@
   margin: 5px;
   display: flex;
   justify-content: left;
+  align-items: center;
   font-size: 12px;
 }
 
@@ -27,6 +28,24 @@
   border: 1px solid darkgrey;
   border-radius: 5px;
   background-color: darkgrey;
+  padding: 4px;
+  margin-right: 20px;
+  color: white;
+}
+
+.pin-add-btn{
+  border: 1px solid darkgrey;
+  border-radius: 5px;
+  background-color: lightcoral;
+  padding: 4px;
+  margin-right: 20px;
+  color: white;
+}
+
+.pin-delete-btn{
+  border: 1px solid darkgrey;
+  border-radius: 5px;
+  background-color: steelblue;
   padding: 4px;
   margin-right: 20px;
   color: white;
