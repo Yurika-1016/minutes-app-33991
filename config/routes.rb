@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     collection do
       get 'search_me'
     end
+    collection do
+      get 'search_not_close'
+    end
     resources :pins, only: [:create, :destroy]
+    resources :closes, only: [:create, :destroy]
   end
 end

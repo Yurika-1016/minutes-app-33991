@@ -4,6 +4,7 @@ class Minute < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one :to_do_list, dependent: :destroy
   has_many :pins, dependent: :destroy
+  has_many :closes, dependent: :destroy
 
   with_options presence: true do
     validates :title

@@ -58,6 +58,12 @@ class MinutesController < ApplicationController
     @minute = Minute.find(pin)
   end
 
+  def search_not_close
+    @minutes = Minute.left_joins(:closes).where(closes: {minute_id: nil} ).order(id: 'DESC')
+    pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
+    @minute = Minute.find(pin)
+  end
+
   private
 
   def minute_params
