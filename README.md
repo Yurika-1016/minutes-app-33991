@@ -37,9 +37,9 @@ https://minutes-app-33991.herokuapp.com/
 
 # テスト用アカウント
 メールアドレス：a@a
-パスワード：aaa111
-Basic認証 ユーザー名：admin
-Basic認証 パスワード：2222
+<br>パスワード：aaa111
+<br>Basic認証 ユーザー名：admin
+<br>Basic認証 パスワード：2222
 
 # 利用方法
 - 利用したいユーザーは新規登録をしてください。
@@ -70,13 +70,13 @@ Basic認証 パスワード：2222
 
 # 実装した機能についてのGIFと説明
 ## トップページの説明
-![toppage](https://gyazo.com/d6ee01b95106e9b6990b59b4823f596d)
+![demo](https://gyazo.com/d6ee01b95106e9b6990b59b4823f596d/raw)
 左側に各ユーザーがピン留め設定したものを一覧表示しています
 右側上部は検索窓となっており、任意のワード検索ができます。ワンクリックで自分が登録した議事録・closeされていない議事録を一覧表示できます
 右側下部は全てのユーザーが登録した議事録を一覧表示しています
 
 ## 詳細ページの説明
-![toppage](https://gyazo.com/e855dfef4d2c6b8ac2aa1200c7b127c3)
+![demo](https://gyazo.com/e855dfef4d2c6b8ac2aa1200c7b127c3/raw)
 左側に登録した議事録内容が表示しています
 右側上部に登録した議事録に対するTo Do リストを登録・終了済み設定ができます
 右側下部は登録した議事録に対し、コメントをすることができます
@@ -86,12 +86,12 @@ Basic認証 パスワード：2222
 ・コメント投稿機能における画像投稿機能実装
 
 # データベース設計
-![toppage](https://gyazo.com/902722e00c0a50f8483eade10e4190bb)
+![demo](https://gyazo.com/902722e00c0a50f8483eade10e4190bb/raw)
 
 # ローカルでの動作方法
 https://github.com/Yurika-1016/minutes-app-33991.git
-ruby version '2.6.5'
-Ruby on Rails
+<br>ruby version '2.6.5'
+<br>Ruby on Rails
 
 
 ## Usersテーブル
