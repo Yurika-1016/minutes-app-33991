@@ -34,7 +34,8 @@
 }
 
 .nav-list{
-  border: 1px solid gray;
+  border: 1px solid lightgray;
+  border-radius: 8px;
   padding: 10px;
   margin: 10px;
   text-decoration: none;

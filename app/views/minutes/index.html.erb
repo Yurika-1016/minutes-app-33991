@@ -19,7 +19,7 @@
         <%= form_with(url:search_me_minutes_path, local: true, method: :get, class:"search-sub-class") do |f| %>
           <%= f.submit "▼自分が投稿した議事録を表示", class:"search-sub-submit-btn" %>
         <% end %>
-        <%= form_with(url:"#", local: true, method: :get, class:"search-sub-class") do |f| %>
+        <%= form_with(url:search_not_close_minutes_path , local: true, method: :get, class:"search-sub-class") do |f| %>
           <%= f.submit "▼closedされていない議事録を表示", class:"search-sub-submit-btn" %>
         <% end %>
       </div>

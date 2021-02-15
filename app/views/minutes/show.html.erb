@@ -3,23 +3,24 @@
 <div class="main">
   <div class ="left-bar">
   ■議事録詳細内容
-    <div class="user-only-function">
+    <div class="function-bar">
       <% if current_user.id == @minute.user_id %>
         <%= link_to "編集", edit_minute_path(@minute.id), class:"user-only-func-btn" %>
         <%= link_to "削除", minute_path(@minute.id), method: :delete, class:"user-only-func-btn" %>
-        <%# if @minute.closed.empty? %>
-          <%= link_to "この議事録をclosedする", "#", class:"user-only-func-btn" %>
-        <%# else %>
-        <%# end %>
+        <% if @minute.closes.empty? %>
+          <%= link_to "この議事録をclosedする", minute_closes_path(@minute.id), method: :post, class:"add-btn" %>
+        <% else %>
+          <%= link_to "この議事録を再openする", minute_close_path(@minute.id), method: :delete, class:"delete-btn" %>
+        <% end %>
       <% end %>
       <div class="pin-btns", id="pin-btns", onclick="window.location.reload()">
         <% if Pin.where(user_id: current_user.id).where(minute_id: @minute.id).empty? %>
-          <%= link_to "ピン留めに追加", minute_pins_path(@minute), method: :post, class:"pin-add-btn" %>
+          <%= link_to "ピン留めに追加", minute_pins_path(@minute), method: :post, class:"add-btn" %>
         <% else %>
-          <%= link_to "ピン留めを外す", minute_pin_path(@pin), method: :delete, class:"pin-delete-btn" %>
+          <%= link_to "ピン留めを外す", minute_pin_path(@pin), method: :delete, class:"delete-btn" %>
         <% end %>
       </div>
-      <input type="button"  value="更新" id="koshin">
+      <input type="button"  class="koshin-btn" value="更新" id="koshin">
     </div>
 
     <div class="minute-iists">
@@ -217,6 +218,8 @@
             この投稿にはコメントは投稿されていません。
           <% end %>
         </div>
+        <br>
+        <%=link_to "トップページに戻る", root_path%>
 
       </div>
         <%= link_to "コメントする", new_minute_comment_path(@minute.id), class:"comment-button"%>

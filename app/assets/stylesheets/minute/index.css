@@ -1,9 +1,4 @@
 
-.main{
-  display: flex;
-  margin: 0;
-}
-
 .side-bar{
   width: 30%;
   height: 100%;
@@ -81,8 +76,19 @@
   padding: 8px;
 }
 
+.close-status{
+  margin: 0;
+}
+
+.closed{
+  text-align: center;
+  background-color: gray;
+  color: white;
+}
+
 a{
   text-decoration: none;
   color: black;
 }
+
 

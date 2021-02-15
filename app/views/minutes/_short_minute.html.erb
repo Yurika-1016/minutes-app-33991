@@ -1,5 +1,12 @@
 <div class="minute">
-        <%= link_to minute_path(minute.id) do%>
+  <%= link_to minute_path(minute.id) do%>
+        <div class="close-status">
+      <% if minute.closes.present? %>
+        <div class="closed">
+          <span>close済</span>
+        </div>
+      <% end %>
+    </div>
           <div class="minute.title">
             会議題目：<%= minute.title %>
           </div>
@@ -12,6 +19,5 @@
           <div class="minute-post_user_name">
             登録者：<%= minute.user.last_name+minute.user.first_name %>
           </div>
-          <%# if minureがclosedの時はclosedのタグをつける%>
-        <% end %>
-        </div>
+  <% end %>
+</div>

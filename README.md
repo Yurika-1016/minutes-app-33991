@@ -85,6 +85,7 @@ minutes_app
 - has_many :minutes
 - has_many :comments
 - has_many :to_do_lists
+- has_many :pins
 
 ## Minutesテーブル
 |           column           |      type       |                            option                                |
@@ -100,6 +101,8 @@ minutes_app
 - belongs_to :user
 - has_many :comments
 - has_one :to_do_list
+- has_many :pins
+- has_many :closes
 
 ## Commentsテーブル
 |           column           |      type       |                 option                    |
@@ -137,4 +140,11 @@ minutes_app
 |         minute_id          |    references   |       null:false, foreign_keys: true      |
 ### Association
 - belongs_to :user
+- belongs_to :minute
+
+## Closesテーブル
+|           column           |      type       |                 option                    |
+| -------------------------- | --------------- | ----------------------------------------- |
+|         minute_id          |    references   |       null:false, foreign_keys: true      |
+### Association
 - belongs_to :minute
