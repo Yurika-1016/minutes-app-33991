@@ -3,6 +3,11 @@
 <div class="main">
   <div class ="left-bar">
   ■議事録詳細内容
+  <div class="close-display">
+    <% if @minute.closes.present? %>
+      <%= "この議事録は#{@minute.user.last_name}#{@minute.user.first_name}さんによりclosed設定済みです" %>
+    <% end %>
+  </div>
     <div class="function-bar">
       <% if current_user.id == @minute.user_id %>
         <%= link_to "編集", edit_minute_path(@minute.id), class:"user-only-func-btn" %>
