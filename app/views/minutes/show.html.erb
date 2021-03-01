@@ -1,13 +1,17 @@
 <header><%= render "shared/header" %></header>
 
+<%# 議事録内容一覧 %>
 <div class="main">
   <div class ="left-bar">
   ■議事録詳細内容
+  <%# closed済みの議事録はclosedと表示される設定 %>
   <div class="close-display">
     <% if @minute.closes.present? %>
       <%= "この議事録は#{@minute.user.last_name}#{@minute.user.first_name}さんによりclosed設定済みです" %>
     <% end %>
   </div>
+
+    <%# 編集・削除・closed設定バー（投稿したユーザーのみ設定できる） %>
     <div class="function-bar">
       <% if current_user.id == @minute.user_id %>
         <%= link_to "編集", edit_minute_path(@minute.id), class:"user-only-func-btn" %>
@@ -18,16 +22,20 @@
           <%= link_to "この議事録を再openする", minute_close_path(@minute.id), method: :delete, class:"delete-btn" %>
         <% end %>
       <% end %>
+
+      <%# ピン留め設定バー（各ユーザー設定可能機能） %>
       <div class="pin-btns", id="pin-btns", onclick="window.location.reload()">
         <% if Pin.where(user_id: current_user.id).where(minute_id: @minute.id).empty? %>
           <%= link_to "ピン留めに追加", minute_pins_path(@minute), method: :post, class:"add-btn" %>
         <% else %>
-          <%= link_to "ピン留めを外す", minute_pin_path(@pin), method: :delete, class:"delete-btn" %>
+          <%= link_to "ピン留めを外す", minute_pin_path(@minute_pin), method: :delete, class:"delete-btn" %>
         <% end %>
       </div>
+
       <input type="button"  class="koshin-btn" value="更新" id="koshin">
     </div>
 
+    <%# 議事録内容詳細 %>
     <div class="minute-iists">
       <li class="minute-list">
         <div class="info-title">
@@ -83,22 +91,28 @@
           </div>
         </li>
       <% end %>
+
     </div>
   </div>
 
+  <%# To Doリストゾーン %>
   <div class="right-bar">
     <div class="right-upper-bar">
     ■To Do リスト
+    <%# To Doリストの登録がなければ登録ボタンが表示される %>
     <% unless @to_do_list.present? %>
       <div class="to_do_input_form">
         <%= link_to "To Do リストを登録する", new_minute_to_do_list_path(@minute.id), class:"to_do_input_form_btn"%>
       </div>
 
+    <%# To Doリスト投稿があれば編集ボタンが表示される %>
     <% else %>
     <div class="to_do_list_show">
       <div class="to_do_list_edit">
         <%= link_to "編集", edit_minute_to_do_list_path(@to_do_list.minute.id, @to_do_list.id), class:"to_do_list_edit_btn" %>
       </div>
+
+      <%# To Do リスト一覧 %>
       <div class="to_do_list_contents">
         <li>
           <%if @to_do_list.checked_list1 == true %>
@@ -188,34 +202,41 @@
         </li>
         <% end %>
       </div>
+
     </div>
     <% end %>
     </div>
 
+    <%# コメントゾーン %>
     <div class="right-lower-bar">
     ■コメント欄
+      <%# コメント一覧表示 %>
       <div class="comments">
         <% @comments.each do |comment|%>
           <div class="comment">
-          
+
             <div class=comennt-contents>
+              <%# 各コメントした人の姓名を表示 %>
               <div class="comment-user_name">
                 <%= "#{comment.user.last_name} #{comment.user.first_name}" %>:
               </div>
+              <%# 各コメント内容を表示 %>
               <div class="comment_content">
                 <%= comment.title %> 
               </div>
             </div>
-
+            <%# コメントしたのがログイン中のユーザーに限り編集・削除ボタン表示 %>
             <div class="comment-edit-destroy">
               <% if current_user.id == comment.user_id %>
                 <%= link_to "編集", edit_minute_comment_path(comment.minute.id, comment.id), class:"comment-edit-destroy-btn" %>
                 <%= link_to "削除", minute_comment_path(comment.minute.id, comment.id), method: :delete, class:"comment-edit-destroy-btn" %>
               <% end %>
             </div>
+
           </div>
         <% end %>
 
+        <%# コメントが何も投稿されていなければ下記を表示 %>
         <div class="comment-exit">
           <% if @comments.present? %>
             この投稿に関するコメントは以上です。
@@ -223,10 +244,12 @@
             この投稿にはコメントは投稿されていません。
           <% end %>
         </div>
+
         <br>
         <%=link_to "トップページに戻る", root_path%>
 
       </div>
+        <%# コメント投稿ボタン %>
         <%= link_to "コメントする", new_minute_comment_path(@minute.id), class:"comment-button"%>
       </div>
     </div>

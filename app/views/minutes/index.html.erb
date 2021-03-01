@@ -1,20 +1,26 @@
 <header><%= render "shared/header" %></header>
 
 <div class="main">
+  <%# ピン留めリスト一覧 %>
   <div class ="side-bar">
   ★ピン留めリスト
-    <% @minute.each do |minute|%>
+    <% @minute_pin.each do |minute|%>
       <%= render partial:'short_minute', locals:{minute: minute} %>
     <% end%>
   </div>
+
   <div class="main-bar">
+    <%# 検索窓 %>
     <div class="main-upper-bar">
+      <%# フリーワード検索窓 %>
       <div class="main-search">
         <%= form_with(url:search_minutes_path, local: true, method: :get, class:"search-class") do |f| %>
           <%= f.text_field :keyword, placeholder:"検索したいワードを入力してください", class:"search-form" %>
           <%= f.submit "検索", class:"search-submit-btn" %>
         <% end %>
       </div>
+
+      <%# ワンクリック検索窓 %>
       <div class="sub-search">
         <%= form_with(url:search_me_minutes_path, local: true, method: :get, class:"search-sub-class") do |f| %>
           <%= f.submit "▼自分が投稿した議事録を表示", class:"search-sub-submit-btn" %>
@@ -23,7 +29,10 @@
           <%= f.submit "▼closedされていない議事録を表示", class:"search-sub-submit-btn" %>
         <% end %>
       </div>
+
     </div>
+
+    <%# 議事録一覧を表示 %>
     <div class="main-lower-bar">
     ■議事録一覧
       <% @minutes.each do |minute|%>

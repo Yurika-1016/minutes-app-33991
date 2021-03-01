@@ -1,5 +1,7 @@
 <div class="minute">
+  
   <%= link_to minute_path(minute.id) do%>
+    <%# close済みの議事録は各カードにclose済を表示する %>
     <div class="close-status">
       <% if minute.closes.present? %>
         <div class="closed">
@@ -10,6 +12,8 @@
         </div>
       <% end %>
     </div>
+
+    <%# 議事録各カード一覧表示 %>
     <div class="minute-content">
       <div class="minute.title">
         会議題目：<%= minute.title %>
@@ -27,5 +31,6 @@
         登録者：<%= minute.user.last_name+minute.user.first_name %>
       </div>
     </div>
+    
   <% end %>
 </div>

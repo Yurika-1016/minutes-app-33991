@@ -2,11 +2,12 @@ class MinutesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_minute, only: [:show, :edit, :update, :destroy]
   before_action :not_user_permitted, only: [:edit, :destroy]
+  before_action :minute_pin, only: [:index, :show, :search, :search_me, :search_not_close]
 
   def index
     @minutes = Minute.all.order(id: 'DESC')
     pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
-    @minute = Minute.find(pin)
+    @minute_pin = Minute.find(pin)
   end
 
   def new
@@ -24,10 +25,7 @@ class MinutesController < ApplicationController
 
   def show
     @comments = @minute.comments
-    @comment = @minute.comments
     @to_do_list = @minute.to_do_list
-    pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
-    @pin = Minute.find(pin)
   end
 
   def edit
@@ -48,20 +46,14 @@ class MinutesController < ApplicationController
 
   def search
     @minutes = Minute.search(params[:keyword])
-    pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
-    @minute = Minute.find(pin)
   end
 
   def search_me
     @minutes = Minute.where(user_id: current_user.id).order(id: 'DESC')
-    pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
-    @minute = Minute.find(pin)
   end
 
   def search_not_close
-    @minutes = Minute.left_joins(:closes).where(closes: {minute_id: nil} ).order(id: 'DESC')
-    pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
-    @minute = Minute.find(pin)
+    @minutes = Minute.left_joins(:closes).where(closes: { minute_id: nil }).order(id: 'DESC')
   end
 
   private
@@ -77,5 +69,10 @@ class MinutesController < ApplicationController
 
   def not_user_permitted
     redirect_to root_path unless @minute.user_id == current_user.id
+  end
+
+  def minute_pin
+    pin = Pin.where(user_id: current_user.id).pluck(:minute_id)
+    @minute_pin = Minute.find(pin)
   end
 end

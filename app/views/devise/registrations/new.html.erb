@@ -23,7 +23,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :password, "パスワード(6文字以上で設定してください)", class:"label_name" %><br />
+      <%= f.label :password, "パスワード(6文字以上必須)", class:"label_name" %><br />
       <%= f.password_field :password, autocomplete: "new-password" ,placeholder: "例）aaa111", class:"label_form" %>
     </div>
 
@@ -33,7 +33,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :employee_number , "社員番号", class:"label_name"%><br />
+      <%= f.label :employee_number , "社員番号(5桁)", class:"label_name"%><br />
       <%= f.text_field :employee_number, placeholder: "例）11111", class:"label_form"  %>
     </div>
 
